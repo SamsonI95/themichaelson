@@ -38,7 +38,7 @@ const Home = () => {
                     {/* <div className="absolute inset-0 bg-linear-to-b from-midnight-navy/50 via-transparent to-midnight-navy/80" /> */}
                 </div>
 
-                <div className="relative h-full max-w-6xl px-6 md:px-12 flex items-center">
+                <div className="relative h-full max-w-6xl px-6 lg:px-18 flex items-center">
                     <div className="max-w-3xl gap-5">
                         <FadeIn>
                             <p className="text-(--color-ivory) text-xs md:text-sm uppercase tracking-[0.2em] mb-6">
@@ -77,7 +77,7 @@ const Home = () => {
                 </div>
             </section>
             <section className="py-24 lg:pt-32 lg:pb-8 bg-(--color-ivory)">
-                <div className="mx-auto px-6 md:px-12">
+                <div className="mx-auto px-6 lg:px-18">
                     <FadeIn>
                         <div className="mx-auto text-center">
                             <p className="text-xs uppercase tracking-[0.2em] text-muted-gold mb-6">Our Philosophy</p>
@@ -95,7 +95,7 @@ const Home = () => {
                 </div>
             </section>
             <section className="py-24 lg:pt-8 lg:pb-32 bg-warm-stone/20">
-                <div className="mx-auto px-6 md:px-12">
+                <div className="mx-auto px-6 lg:px-18">
                     <FadeIn>
                         <div className="text-center mb-16">
                             <p className="text-xs uppercase tracking-[0.2em] text-muted-gold mb-4">Collections</p>

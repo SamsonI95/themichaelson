@@ -12,7 +12,7 @@ export default function Navbar() {
 
     return (
         <nav className="nav container border-b border-(--color-stone)/20">
-            <div className="logo">MICHAELSON</div>
+            <NavLink to="/" className="logo">MICHAELSON</NavLink>
 
             <div className="nav-right">
                 {/* Right Controls */}
@@ -31,7 +31,7 @@ export default function Navbar() {
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About</NavLink>
                     <NavLink to="/collections">Collections</NavLink>
-                    <NavLink to="/lookbook">Lookbook</NavLink>
+                    {/* <NavLink to="/lookbook">Lookbook</NavLink> */}
                     <NavLink to="/contact">Contact</NavLink>
                 </div>
             </div>
@@ -44,7 +44,7 @@ export default function Navbar() {
                 <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
                 <NavLink to="/about" onClick={() => setOpen(false)}>About</NavLink>
                 <NavLink to="/collections" onClick={() => setOpen(false)}>Collections</NavLink>
-                <NavLink to="/lookbook" onClick={() => setOpen(false)}>Lookbook</NavLink>
+                {/* <NavLink to="/lookbook" onClick={() => setOpen(false)}>Lookbook</NavLink> */}
                 <NavLink to="/contact" onClick={() => setOpen(false)}>Contact</NavLink>
             </div>
         </nav>

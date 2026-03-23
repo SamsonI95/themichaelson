@@ -23,7 +23,7 @@ const About = () => {
             </section>
 
             <section className="py-24 md:py-32 bg-(--color-navy) text-(--color-ivory)">
-                <div className="mx-auto px-6 md:px-12">
+                <div className="mx-auto px-6 lg:px-18">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
                         <FadeIn className="md:col-span-5">
                             <div className="relative aspect-3/4 overflow-hidden">
@@ -69,7 +69,7 @@ const About = () => {
             </section>
 
             <section className="py-24 md:py-32 bg-(--color-stone)/20">
-                <div className="mx-auto px-6 md:px-12">
+                <div className="mx-auto px-6 lg:px-18">
                     <FadeIn>
                         <div className="text-center mb-16">
                             <p className="text-xs uppercase tracking-[0.2em] text-(--color-gold) mb-4">Philosophy</p>
@@ -123,7 +123,7 @@ const About = () => {
             </section>
 
             <section className="py-24 md:py-32 bg-(--color-ivory)">
-                <div className="mx-auto px-6 md:px-12">
+                <div className="mx-auto px-6 lg:px-18">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
                         <FadeIn>
                             <div className="relative aspect-4/5 overflow-hidden">
@@ -167,7 +167,7 @@ const About = () => {
             </section>
 
             <section className="py-24 md:py-32 bg-(--color-navy) text-(--color-ivory)">
-                <div className="mx-auto px-6 md:px-12">
+                <div className="mx-auto px-6 lg:px-18">
                     <FadeIn>
                         <div className="text-center mb-16">
                             <p className="text-xs uppercase tracking-[0.2em] text-(--color-gold) mb-4">Our Values</p>
@@ -223,7 +223,7 @@ const About = () => {
 
             {/* Positioning */}
             <section className="py-24 md:py-32 bg-(--color-ivory)">
-                <div className="mx-auto px-6 md:px-12">
+                <div className="mx-auto px-6 lg:px-18">
                     <FadeIn>
                         <div className="max-w-3xl mx-auto text-center">
                             <h2 className="text-4xl md:text-5xl text-(--color-navy) mb-8 leading-tight">
