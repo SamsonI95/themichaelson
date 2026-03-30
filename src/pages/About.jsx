@@ -28,7 +28,7 @@ const About = () => {
                         <FadeIn className="md:col-span-5">
                             <div className="relative aspect-3/4 overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1665495005618-6f55e5f77a07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMGNvbmZpZGVudCUyMGFmcmljYW4lMjBlbnRyZXByZW5ldXJ8ZW58MXx8fHwxNzczNzY0NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                                    src="/Michaelson-CEO.jpeg"
                                     alt="Founder"
                                     className="w-full h-full object-cover"
                                 />
@@ -46,12 +46,12 @@ const About = () => {
                                     <p>
                                         Michaelson was born from a singular vision: to create footwear that honors the rich heritage
                                         of Nigerian craftsmanship while embracing the refined elegance of British luxury. Our founder,
-                                        having grown up between Lagos and London, witnessed firsthand the extraordinary artistry present
+                                        having grown up between Akure and London, witnessed firsthand the extraordinary artistry present
                                         in both cultures.
                                     </p>
 
                                     <p>
-                                        In Lagos, there was boldness, vibrancy, and an unapologetic confidence in self-expression.
+                                        In Akure, there was boldness, vibrancy, and an unapologetic confidence in self-expression.
                                         In London, there was restraint, precision, and a commitment to timeless quality. Rather than
                                         choose between these two worlds, we decided to unite them.
                                     </p>
@@ -128,7 +128,7 @@ const About = () => {
                         <FadeIn>
                             <div className="relative aspect-4/5 overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1772442125267-7640b4b5f2fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3b3Jrc2hvcCUyMGFydGlzYW4lMjBzdHVkaW98ZW58MXx8fHwxNzczNzY0NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                                    src="/IMG_9264.jpg"
                                     alt="Craftsmanship"
                                     className="w-full h-full object-cover"
                                 />

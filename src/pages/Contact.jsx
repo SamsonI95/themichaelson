@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
+import { submitInquiry } from '../services/inquiryService';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,19 +14,39 @@ const Contact = () => {
     inquiryType: 'general',
   });
 
-  const handleSubmit = (e) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // This is a mock submission - in a real implementation, this would send to a backend
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry. We will be in touch shortly.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-      inquiryType: 'general',
-    });
+    setIsLoading(true);
+    setErrorMessage('');
+    setSuccessMessage('');
+
+    try {
+      const inquiryId = await submitInquiry(formData);
+      console.log('Inquiry submitted with ID:', inquiryId);
+      setSuccessMessage('Thank you for your inquiry. We will be in touch shortly.');
+
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+        inquiryType: 'general',
+      });
+
+      // Clear success message after 5 seconds
+      setTimeout(() => setSuccessMessage(''), 5000);
+    } catch (error) {
+      console.error('Error submitting inquiry:', error);
+      setErrorMessage('Failed to send your message. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -65,7 +86,7 @@ const Contact = () => {
                 <h2 className="text-3xl text-(--color-navy) mb-8">Get in Touch</h2>
 
                 <div className="space-y-8 mb-12">
-                  <div className="flex gap-4">
+                  {/* <div className="flex gap-4">
                     <div className="w-12 h-12 rounded-full border border-(--color-gold) flex items-center justify-center shrink-0">
                       <MapPin size={20} className="text-(--color-gold)" />
                     </div>
@@ -77,17 +98,17 @@ const Contact = () => {
                         W1S 3PJ, United Kingdom
                       </p>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="flex gap-4">
                     <div className="w-12 h-12 rounded-full border border-(--color-gold) flex items-center justify-center shrink-0">
                       <MapPin size={20} className="text-(--color-gold)" />
                     </div>
                     <div>
-                      <h3 className="text-lg text-(--color-navy) mb-2">Lagos Atelier</h3>
-                      <p className="text-(--color-taupe)">
-                        Victoria Island<br />
-                        Lagos<br />
+                      <h3 className="text-lg text-(--color-navy) mb-2">Nigeria Atelier</h3>
+                      <p className="text-(--color-taupe)"> 
+                        No 13, Olofinade Oda Road<br />
+                        Akure<br />
                         Nigeria
                       </p>
                     </div>
@@ -115,12 +136,12 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="text-lg text-(--color-navy) mb-2">Phone</h3>
-                      <a href="tel:+442012345678" className="text-(--color-taupe) hover:text-(--color-gold) transition-colors">
+                      {/* <a href="tel:+442012345678" className="text-(--color-taupe) hover:text-(--color-gold) transition-colors">
                         +44 20 1234 5678 (London)
                       </a>
-                      <br />
+                      <br /> */}
                       <a href="tel:+2341234567890" className="text-(--color-taupe) hover:text-(--color-gold) transition-colors">
-                        +234 1 234 5678 (Lagos)
+                        +234 1 234 5678 (Akure)
                       </a>
                     </div>
                   </div>
@@ -141,6 +162,18 @@ const Contact = () => {
             <FadeIn delay={0.2} className="md:col-span-7">
               <div className="bg-white p-8 md:p-12">
                 <h2 className="text-3xl text-(--color-navy) mb-8">Send Us a Message</h2>
+
+                {successMessage && (
+                  <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                    {successMessage}
+                  </div>
+                )}
+
+                {errorMessage && (
+                  <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                    {errorMessage}
+                  </div>
+                )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
@@ -241,9 +274,10 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="w-full px-8 py-4 bg-(--color-navy) text-(--color-ivory) hover:bg-(--color-gold) hover:text-(--color-navy) transition-all uppercase tracking-wider text-sm"
+                    disabled={isLoading}
+                    className="w-full px-8 py-4 bg-(--color-navy) text-(--color-ivory) hover:bg-(--color-gold) hover:text-(--color-navy) transition-all uppercase tracking-wider text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {isLoading ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </div>

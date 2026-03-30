@@ -1,26 +1,22 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import useTheme from "../../hooks/useTheme";
 import { IoMenu } from "react-icons/io5";
-import { MdNightlight } from "react-icons/md";
-import { MdOutlineWbSunny } from "react-icons/md";
+import BrandLogo from "../ui/BrandLogo";
 
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
-    const { theme, toggleTheme } = useTheme();
 
     return (
         <nav className="nav container border-b border-(--color-stone)/20">
-            <NavLink to="/" className="logo">MICHAELSON</NavLink>
+            <NavLink to="/" className="logo">
+            <img src="/Logo.svg" alt="michaelson-logo" width={65} />
+                {/* <BrandLogo size="md" /> */}
+            </NavLink>
 
             <div className="nav-right">
                 {/* Right Controls */}
                 <div className="nav-actions">
-                    {/* <button onClick={toggleTheme} className="theme-btn">
-                        {theme === "light" ? <MdNightlight /> : <MdOutlineWbSunny />}
-                    </button> */}
-
                     <button className="menu-btn" onClick={() => setOpen(!open)}>
                         <IoMenu />
                     </button>

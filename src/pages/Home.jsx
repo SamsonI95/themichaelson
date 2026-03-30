@@ -42,7 +42,7 @@ const Home = () => {
                     <div className="max-w-3xl gap-5">
                         <FadeIn>
                             <p className="text-(--color-ivory) text-xs md:text-sm uppercase tracking-[0.2em] mb-6">
-                                London • Lagos
+                                London • Akure
                             </p>
                         </FadeIn>
                         <FadeIn delay={0.2}>

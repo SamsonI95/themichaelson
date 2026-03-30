@@ -13,8 +13,9 @@
 }
 
 .logo {
-  font-family: var(--font-heading);
-  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .nav-links {
@@ -132,6 +133,10 @@
 }
 
 @media (max-width: 768px) {
+  .nav {
+    padding: 16px;
+  }
+
   .nav-links {
     display: none;
   }

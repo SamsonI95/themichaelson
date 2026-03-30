@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="w-full mb-5 border-b border-(--color-stone)/20" />
             <div className="footer-grid">
                 <div>
-                    <h3>MICHAELSON</h3>
+                    <img src="/LogoWhite.svg" alt="michaelson-logo" width={100} />
                     <p>Crafting timeless luxury footwear that bridges British elegance with African heritage.
                         Each pair tells a story of prestige, confidence, and artisanal excellence.</p>
                 </div>
@@ -24,8 +24,8 @@ export default function Footer() {
                 <div>
                     <h4>Contact</h4>
                     <ul className="space-y-3 text-sm">
-                        <li className="text-(--color-stone)">London, United Kingdom</li>
-                        <li className="text-(--color-stone)">Lagos, Nigeria</li>
+                        {/* <li className="text-(--color-stone)">London, United Kingdom</li> */}
+                        <li className="text-(--color-stone)">Akure, Nigeria</li>
                         <li>
                             <a href="mailto:info@michaelson.com" className="text-(--color-stone) hover:text-ivory transition-colors">
                                 info@michaelson.com

@@ -6,52 +6,52 @@ import { Mail } from 'lucide-react';
 const collections = [
   {
     id: 1,
-    name: 'The Oxford',
-    description: 'Classic British elegance with refined Nigerian craftsmanship',
-    price: 'From £895',
-    image: 'https://images.unsplash.com/photo-1773021370310-7fe0b80838ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicm93biUyMGxlYXRoZXIlMjBveGZvcmQlMjBkcmVzcyUyMHNob2VzfGVufDF8fHx8MTc3Mzc2NDY3MXww&ixlib=rb-4.1.0&q=80&w=1080',
-    materials: 'Italian Calfskin, Oak Bark Sole',
-  },
-  {
-    id: 2,
-    name: 'The Loafer',
-    description: 'Effortless sophistication for the modern gentleman',
-    price: 'From £795',
-    image: 'https://images.unsplash.com/photo-1676838179247-6e60dba67d5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibGFjayUyMGxvYWZlciUyMGx1eHVyeSUyMHNob2VzfGVufDF8fHx8MTc3Mzc2NDY3MXww&ixlib=rb-4.1.0&q=80&w=1080',
-    materials: 'French Box Calf, Leather Sole',
-  },
-  {
-    id: 3,
     name: 'The Monk',
-    description: 'Distinguished style with heritage buckle detailing',
+    description: 'A bold expression of refinement, defined by its signature buckle and sleek, structured silhouette. Designed for those who appreciate quiet authority and timeless distinction.',
     price: 'From £925',
-    image: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb25rJTIwc3RyYXAlMjBkcmVzcyUyMHNob2VzJTIwcHJlbWl1bXxlbnwxfHx8fDE3NzM3NjQ2NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/IMG_6686.jpg',
     materials: 'Museum Calf, Bespoke Hardware',
   },
   {
-    id: 4,
+    id: 2,
     name: 'The Chelsea',
-    description: 'Contemporary elegance meets timeless silhouette',
+    description: 'A seamless blend of modern minimalism and classic form. The elasticated side panels and clean lines create a versatile boot that transitions effortlessly from day to evening wear.',
     price: 'From £995',
-    image: 'https://images.unsplash.com/photo-1621703730619-14efc794f8de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVsc2VhJTIwYm9vdHMlMjBsZWF0aGVyJTIwZWxlZ2FudHxlbnwxfHx8fDE3NzM3NjQ2NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/IMG_9327.jpg',
     materials: 'Suede & Calfskin, Leather Sole',
   },
   {
-    id: 5,
-    name: 'The Brogue',
-    description: 'Traditional detailing with modern refinement',
-    price: 'From £875',
-    image: 'https://images.unsplash.com/photo-1651509245244-6674e242a3c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicm9ndWUlMjBzaG9lcyUyMGRldGFpbGVkJTIwY3JhZnRzbWFuc2hpcHxlbnwxfHx8fDE3NzM3NjQ2NzN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    materials: 'Scotch Grain Leather, Storm Welt',
+    id: 3,
+    name: 'The BirkenStock',
+    description: 'A relaxed yet elevated silhouette, reimagined with premium materials and precise craftsmanship. Designed for comfort without compromising on understated luxury.',
+    price: 'From £895',
+    image: '/IMG_9500.jpg',
+    materials: 'Italian Calfskin, Oak Bark Sole',
   },
   {
-    id: 6,
-    name: 'The Derby',
-    description: 'Versatile elegance for every occasion',
-    price: 'From £850',
-    image: 'https://images.unsplash.com/photo-1759793501020-75fbf108d705?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXJieSUyMHNob2VzJTIwYnJvd24lMjBsZWF0aGVyJTIwcHJlbWl1bXxlbnwxfHx8fDE3NzM3NjQ2NzN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    materials: 'Vegetable-Tanned Calfskin, Cork Footbed',
+    id: 4,
+    name: 'The Half-Shoe',
+    description: 'A refined slip-on designed for ease and elegance. Its low profile and clean finish make it an essential for the modern wardrobe, balancing comfort with polished simplicity.',
+    price: 'From £795',
+    image: '/IMG_6240.jpg',
+    materials: 'French Box Calf, Leather Sole',
   },
+  {
+    id: 5,
+    name: 'The Slipper',
+    description: 'A sophisticated take on casual luxury, crafted with soft structure and fine detailing. Ideal for relaxed settings while maintaining a distinguished, tailored appearance.',
+    price: 'From £875',
+    image: '/IMG_2003.jpeg',
+    materials: 'Scotch Grain Leather, Storm Welt',
+  },
+  // {
+  //   id: 6,
+  //   name: 'The Derby',
+  //   description: 'Versatile elegance for every occasion',
+  //   price: 'From £850',
+  //   image: 'https://images.unsplash.com/photo-1759793501020-75fbf108d705?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXJieSUyMHNob2VzJTIwYnJvd24lMjBsZWF0aGVyJTIwcHJlbWl1bXxlbnwxfHx8fDE3NzM3NjQ2NzN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+  //   materials: 'Vegetable-Tanned Calfskin, Cork Footbed',
+  // },
 ];
 
 const Collection = () => {
@@ -120,7 +120,7 @@ const Collection = () => {
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-xs uppercase tracking-[0.2em] text-(--color-gold) mb-6">Bespoke Service</p>
-              <h2 className="text-4xl md:text-5xl mb-8 leading-tight">
+              <h2 className="text-4xl md:text-5xl text-(--color-gold) mb-8 leading-tight">
                 Create Something Uniquely Yours
               </h2>
               <p className="text-(--color-stone) text-lg md:text-xl leading-relaxed mb-10">
