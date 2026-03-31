@@ -1,5 +1,6 @@
 import React from 'react'
 import { FadeIn } from '../components/FadeIn';
+import ImageWithBlur from '../components/ui/ImageWithBlur';
 import { motion } from 'framer-motion'
 
 const About = () => {
@@ -27,7 +28,7 @@ const About = () => {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
                         <FadeIn className="md:col-span-5">
                             <div className="relative aspect-3/4 overflow-hidden">
-                                <img
+                                <ImageWithBlur
                                     src="/Michaelson-CEO.jpeg"
                                     alt="Founder"
                                     className="w-full h-full object-cover"
@@ -127,7 +128,7 @@ const About = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
                         <FadeIn>
                             <div className="relative aspect-4/5 overflow-hidden">
-                                <img
+                                <ImageWithBlur
                                     src="/IMG_9264.jpg"
                                     alt="Craftsmanship"
                                     className="w-full h-full object-cover"

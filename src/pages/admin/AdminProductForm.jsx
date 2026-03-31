@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router';
 import { addProduct, updateProduct, fetchProducts } from '../../features/products/productsSlice';
 import { Upload, X, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router';
+import { toast } from 'sonner';
 
 export function AdminProductForm() {
   const dispatch = useDispatch();
@@ -18,6 +19,8 @@ export function AdminProductForm() {
     name: '',
     description: '',
     category: '',
+    price: '',
+    materials: '',
   });
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState('');
@@ -35,6 +38,8 @@ export function AdminProductForm() {
         name: existingProduct.name || '',
         description: existingProduct.description || '',
         category: existingProduct.category || '',
+        price: existingProduct.price || '',
+        materials: existingProduct.materials || '',
       });
       if (existingProduct.imageUrl) {
         setImagePreview(existingProduct.imageUrl);
@@ -81,21 +86,30 @@ export function AdminProductForm() {
     setImagePreview('');
   };
 
+  const showFormError = (message) => {
+    setError(message);
+    toast.error(message);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
     // Validation
     if (!formData.name.trim()) {
-      setError('Product name is required');
+      showFormError('Product name is required');
       return;
     }
     if (!formData.category.trim()) {
-      setError('Category is required');
+      showFormError('Category is required');
+      return;
+    }
+    if (!formData.price.trim()) {
+      showFormError('Price is required');
       return;
     }
     if (!isEditMode && !imageFile) {
-      setError('Product image is required');
+      showFormError('Product image is required');
       return;
     }
 
@@ -108,15 +122,19 @@ export function AdminProductForm() {
           existingImageUrl: existingProduct?.imageUrl || '',
           existingImagePublicId: existingProduct?.imagePublicId || '',
         })).unwrap();
+        toast.success(`${formData.name} updated successfully.`);
       } else {
         await dispatch(addProduct({
           productData: formData,
           imageFile,
         })).unwrap();
+        toast.success(`${formData.name} added to the catalog.`);
       }
       navigate('/admin/products');
     } catch (err) {
-      setError(err || 'Failed to save product');
+      const message = err || 'Failed to save product';
+      setError(message);
+      toast.error(message);
     }
   };
 
@@ -213,6 +231,47 @@ export function AdminProductForm() {
               rows={5}
               className="w-full px-4 py-3 border border-(--color-navy)/20 bg-white text-(--color-navy) focus:outline-none focus:border-muted-gold transition-colors resize-none"
               placeholder="Describe the product, its features, materials, and craftsmanship..."
+              disabled={loading}
+            />
+          </div>
+
+          {/* Price */}
+          <div>
+            <label
+              htmlFor="price"
+              className="block text-sm uppercase tracking-wider text-(--color-navy) mb-2"
+            >
+              Price *
+            </label>
+            <input
+              type="text"
+              id="price"
+              name="price"
+              value={formData.price}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 border border-(--color-navy)/20 bg-white text-(--color-navy) focus:outline-none focus:border-muted-gold transition-colors"
+              placeholder="e.g., From GBP 925"
+              disabled={loading}
+              required
+            />
+          </div>
+
+          {/* Materials */}
+          <div>
+            <label
+              htmlFor="materials"
+              className="block text-sm uppercase tracking-wider text-(--color-navy) mb-2"
+            >
+              Materials
+            </label>
+            <input
+              type="text"
+              id="materials"
+              name="materials"
+              value={formData.materials}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 border border-(--color-navy)/20 bg-white text-(--color-navy) focus:outline-none focus:border-muted-gold transition-colors"
+              placeholder="e.g., Museum Calf, Bespoke Hardware"
               disabled={loading}
             />
           </div>

@@ -2,20 +2,31 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router';
 import { fetchProducts, deleteProduct } from '../../features/products/productsSlice';
-import { Plus, Pencil, Trash2, Package } from 'lucide-react';
+import { Plus, Pencil, Trash2, Package, LoaderCircle } from 'lucide-react';
+import { toast } from 'sonner';
 
 export function AdminProducts() {
   const dispatch = useDispatch();
   const { items: products, loading, error } = useSelector((state) => state.products);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
+  const [deletingProductId, setDeletingProductId] = useState(null);
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  const handleDelete = async (id) => {
-    await dispatch(deleteProduct(id));
-    setDeleteConfirm(null);
+  const handleDelete = async (product) => {
+    setDeletingProductId(product.id);
+
+    try {
+      await dispatch(deleteProduct(product.id)).unwrap();
+      toast.success(`${product.name} deleted from the catalog.`);
+    } catch (err) {
+      toast.error(err || 'Failed to delete product');
+    } finally {
+      setDeletingProductId(null);
+      setDeleteConfirm(null);
+    }
   };
 
   if (loading && products.length === 0) {
@@ -65,8 +76,14 @@ export function AdminProducts() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <div key={product.id} className="bg-white group">
+          {products.map((product) => {
+            const isDeleting = deletingProductId === product.id;
+
+            return (
+            <div
+              key={product.id}
+              className={`bg-white group transition-opacity ${isDeleting ? 'opacity-70' : ''}`}
+            >
               {/* Product Image */}
               <div className="aspect-4/3 bg-warm-stone/20 overflow-hidden">
                 {product.imageUrl ? (
@@ -91,12 +108,26 @@ export function AdminProducts() {
                 </div>
                 <h3 className="text-xl text-(--color-navy) mb-2">{product.name}</h3>
                 <p className="text-(--color-taupe) text-sm mb-4 line-clamp-2">{product.description}</p>
+                <div className="space-y-1 text-sm mb-4">
+                  {product.price && (
+                    <p className="text-(--color-navy)">{product.price}</p>
+                  )}
+                  {product.materials && (
+                    <p className="text-(--color-gold) uppercase tracking-wider">{product.materials}</p>
+                  )}
+                </div>
 
                 {/* Actions */}
                 <div className="flex items-center gap-2 pt-4 border-t border-(--color-navy)/10">
                   <Link
                     to={`/admin/products/edit/${product.id}`}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-(--color-navy)/20 hover:border-(-color-gold) hover:bg-(-color-gold)/5 transition-all text-sm uppercase tracking-wider text-(--color-navy)"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-(--color-navy)/20 hover:border-(-color-gold) hover:bg-(-color-gold)/5 transition-all text-sm uppercase tracking-wider text-(--color-navy) disabled:pointer-events-none disabled:opacity-50"
+                    aria-disabled={isDeleting}
+                    onClick={(event) => {
+                      if (isDeleting) {
+                        event.preventDefault();
+                      }
+                    }}
                   >
                     <Pencil size={16} />
                     Edit
@@ -104,30 +135,45 @@ export function AdminProducts() {
                   {deleteConfirm === product.id ? (
                     <>
                       <button
-                        onClick={() => handleDelete(product.id)}
-                        className="flex-1 px-4 py-2 bg-oxblood text-white hover:bg-oxblood/90 transition-all text-sm uppercase tracking-wider"
+                        onClick={() => handleDelete(product)}
+                        disabled={isDeleting}
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-oxblood text-white hover:bg-oxblood/90 transition-all text-sm uppercase tracking-wider disabled:cursor-not-allowed disabled:opacity-80"
                       >
-                        Confirm
+                        {isDeleting ? (
+                          <>
+                            <LoaderCircle size={16} className="animate-spin" />
+                            Deleting...
+                          </>
+                        ) : (
+                          <h3 className="px-4 py-2 border border-(--color-navy)/20 hover:bg-warm-stone/10 transition-all text-sm uppercase tracking-wider text-(--color-navy)">Confirm</h3>
+                        )}
                       </button>
                       <button
                         onClick={() => setDeleteConfirm(null)}
-                        className="px-4 py-2 border border-(--color-navy)/20 hover:bg-warm-stone/10 transition-all text-sm uppercase tracking-wider text-(--color-navy)"
+                        disabled={isDeleting}
+                        className="px-4 py-2 border border-(--color-navy)/20 hover:bg-warm-stone/10 transition-all text-sm uppercase tracking-wider text-(--color-navy) disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         Cancel
                       </button>
                     </>
                   ) : (
                     <button
+                      disabled={isDeleting}
                       onClick={() => setDeleteConfirm(product.id)}
-                      className="px-4 py-2 border border-(--color-navy)/20 hover:border-oxblood hover:bg-oxblood/5 transition-all text-oxblood"
+                      className="px-4 py-2 border border-(--color-navy)/20 hover:border-oxblood hover:bg-oxblood/5 transition-all text-oxblood disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                      <Trash2 size={16} />
+                      {isDeleting ? <LoaderCircle size={16} className="animate-spin" /> : <Trash2 size={16} />}
                     </button>
                   )}
                 </div>
+                {isDeleting && (
+                  <p className="mt-3 text-xs uppercase tracking-wider text-(--color-oxblood)">
+                    Deleting product...
+                  </p>
+                )}
               </div>
             </div>
-          ))}
+          )})}
         </div>
       )}
     </div>

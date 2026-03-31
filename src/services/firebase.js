@@ -1,17 +1,27 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from "firebase/firestore";
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCFXxl06SE49JmnAtCFSv0BL3KuBH4laQI",
-  authDomain: "michaelson-db.firebaseapp.com",
-  projectId: "michaelson-db",
-  storageBucket: "michaelson-db.firebasestorage.app",
-  messagingSenderId: "408299339921",
-  appId: "1:408299339921:web:d1d1de4cb4dce6df9e7f30",
-  measurementId: "G-7KB8QWZWSP"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
+
+const missingFirebaseConfig = Object.entries(firebaseConfig)
+  .filter(([, value]) => !value)
+  .map(([key]) => key);
+
+if (missingFirebaseConfig.length > 0) {
+  throw new Error(
+    `Firebase environment variables are missing: ${missingFirebaseConfig.join(', ')}`
+  );
+}
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);

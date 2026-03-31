@@ -12,6 +12,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 import { uploadImage } from '../../services/uploadService';
+import { defaultCollectionProducts } from '../../data/defaultCollectionProducts';
 
 // Async thunks
 export const fetchProducts = createAsyncThunk(
@@ -20,6 +21,31 @@ export const fetchProducts = createAsyncThunk(
     try {
       const q = query(collection(db, 'products'), orderBy('createdAt', 'desc'));
       const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        const timestamp = Timestamp.now();
+        const seededProducts = await Promise.all(
+          defaultCollectionProducts.map(async (product) => {
+            const docRef = await addDoc(collection(db, 'products'), {
+              ...product,
+              imagePublicId: '',
+              createdAt: timestamp,
+              updatedAt: timestamp,
+            });
+
+            return {
+              id: docRef.id,
+              ...product,
+              imagePublicId: '',
+              createdAt: timestamp,
+              updatedAt: timestamp,
+            };
+          })
+        );
+
+        return seededProducts;
+      }
+
       const products = [];
       querySnapshot.forEach((doc) => {
         products.push({ id: doc.id, ...doc.data() });
