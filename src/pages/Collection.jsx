@@ -41,8 +41,8 @@ const Collection = () => {
               {[...Array(4)].map((_, index) => (
                 <FadeIn key={index} delay={index * 0.1}>
                   <div className="group">
-                    <div className="relative aspect-4/5 overflow-hidden bg-(--color-navy) mb-6 animate-pulse">
-                      <div className="w-full h-full bg-gray-300"></div>
+                    <div className="relative aspect-4/5 overflow-hidden bg-(--color-navy) mb-6">
+                      <div className="w-full h-full shimmer"></div>
                     </div>
                     <div className="space-y-3">
                       <div className="flex items-start justify-between gap-4">

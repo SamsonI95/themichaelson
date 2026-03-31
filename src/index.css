@@ -192,3 +192,19 @@ body {
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
+
+/* Shimmer effect for skeleton loaders */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #d1d5db 0%, #f3f4f6 50%, #d1d5db 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
