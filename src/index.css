@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
+@import "@fontsource/im-fell-french-canon";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -20,6 +21,7 @@
   ========================= */
   --font-heading: "Cormorant Garamond", serif;
   --font-body: "Manrope", sans-serif;
+  --font-alternate: "IM Fell French Canon", serif;
 
   /* =========================
      FONT SIZES
@@ -86,7 +88,6 @@
   /* outline: 1px solid red; */
 }
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -96,7 +97,6 @@ body {
   background-color: var(--color-ivory);
   color: var(--color-charcoal);
   line-height: 1.6;
-  
 }
 
 .dark {

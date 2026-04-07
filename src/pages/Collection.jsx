@@ -16,7 +16,7 @@ const Collection = () => {
   }, [dispatch, products.length]);
 
   return (
-    <>
+    <div style={{ fontFamily: 'var(--font-alternate)' }}>
       <section className="py-12 bg-(--color-ivory)">
         <div className="mx-auto px-6 lg:px-18">
           <FadeIn>
@@ -193,7 +193,7 @@ const Collection = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
