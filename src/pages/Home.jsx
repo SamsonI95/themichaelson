@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 const heroImages = [
     '/images/shoes/shoe3.jpg',
-    '/images/shoes/shoe5.jpg'
+    '/images/shoes/Michaelson-Sandal.jpg'
 ]
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div style={{ fontFamily: 'var(--font-alternate)' }}>
             <section className="relative py-12 overflow-hidden">
                 <div className="absolute inset-0">
                     {heroImages.map((img, i) => (
@@ -46,7 +46,7 @@ const Home = () => {
                             </p>
                         </FadeIn>
                         <FadeIn delay={0.2}>
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl text-(--color-ivory) mb-6 leading-[0.95]">
+                            <h1 className="text-3xl md:text-5xl lg:text-6xl text-(--color-ivory) mb-6 leading-[0.95]">
                                 Timeless Elegance,<br />Rooted in Heritage
                             </h1>
                         </FadeIn>
@@ -110,7 +110,7 @@ const Home = () => {
                                     <img
                                         src="/images/shoes/Michaelson-Sandal.jpg"
                                         alt="Oxford Collection"
-                                        className="w-full h-82.5 object-cover group-hover:scale-105 transition-transform duration-700"
+                                        className="w-full h-82.5 object-cover hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>
                                 <h3 className="text-2xl md:text-3xl text-midnight-navy mb-2">The Michaelson-Sandal</h3>
@@ -127,7 +127,7 @@ const Home = () => {
                                     <img
                                         src="/images/shoes/half-shoe-collection-cover.jpg"
                                         alt="Half Shoe Collection"
-                                        className="w-full h-82.5 object-cover group-hover:scale-105 transition-transform duration-700"
+                                        className="w-full h-82.5 object-cover hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>
                                 <h3 className="text-2xl md:text-3xl text-midnight-navy mb-2">Half Shoe Collection</h3>

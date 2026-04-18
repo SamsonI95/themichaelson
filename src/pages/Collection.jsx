@@ -75,7 +75,7 @@ const Collection = () => {
                         <img
                           src={item.imageUrl}
                           alt={item.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center">

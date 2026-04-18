@@ -8,9 +8,9 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className="nav container border-b border-(--color-stone)/20">
+        <nav className="nav w-full py-2 px-10 bg-(--color-navy) border-b border-(--color-stone)/20" style={{ fontFamily: 'var(--font-alternate)' }}>
             <NavLink to="/" className="logo">
-            <img src="/Logo.svg" alt="michaelson-logo" width={65} />
+            <img src="/LogoGold2.svg" alt="michaelson-logo" width={65} />
                 {/* <BrandLogo size="md" /> */}
             </NavLink>
 

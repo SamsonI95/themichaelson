@@ -4,11 +4,11 @@ import { FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer className="footer">
+        <footer className="footer" style={{ fontFamily: 'var(--font-alternate)' }}>
             <div className="w-full mb-5 border-b border-(--color-stone)/20" />
             <div className="footer-grid">
                 <div>
-                    <img src="/LogoWhite.svg" alt="michaelson-logo" width={100} />
+                    <img src="/LogoGold2.svg" alt="michaelson-logo" width={100} />
                     <p>Crafting timeless luxury footwear that bridges British elegance with African heritage.
                         Each pair tells a story of prestige, confidence, and artisanal excellence.</p>
                 </div>
@@ -25,14 +25,14 @@ export default function Footer() {
                     <h4>Contact</h4>
                     <ul className="space-y-3 text-sm">
                         {/* <li className="text-(--color-stone)">London, United Kingdom</li> */}
-                        <li className="text-(--color-stone)">Akure, Nigeria</li>
+                        <li className="text-(--color-gold)">Akure, Nigeria</li>
                         <li>
-                            <a href="mailto:info@michaelson.com" className="text-(--color-stone) hover:text-ivory transition-colors">
+                            <a href="mailto:info@michaelson.com" className="text-(--color-gold) hover:text-ivory transition-colors">
                                 info@michaelson.com
                             </a>
                         </li>
                         <li>
-                            <a href="tel:+442012345678" className="text-(--color-stone) hover:text-ivory transition-colors">
+                            <a href="tel:+442012345678" className="text-(--color-gold) hover:text-ivory transition-colors">
                                 +44 20 1234 5678
                             </a>
                         </li>
@@ -44,14 +44,14 @@ export default function Footer() {
                     <div className="social-links">
                         <a
                             href="mailto:info@michaelson.com"
-                            className="social-link"
+                            className="social-link hover:scale-110 hover:text-white transition-transform"
                             aria-label="Email Michaelson"
                         >
                             <MdOutlineMail size={20} />
                         </a>
                         <a
                             href="https://api.whatsapp.com/send?phone=2348146379667&text=Hello%20Michaelson!"
-                            className="social-link"
+                            className="social-link hover:scale-110 hover:text-white transition-transform"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="WhatsApp Michaelson"
@@ -60,7 +60,7 @@ export default function Footer() {
                         </a>
                         <a
                             href="https://www.instagram.com/michaelsonfw?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                            className="social-link"
+                            className="social-link hover:scale-110 hover:text-white transition-transform"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram Michaelson"
@@ -71,13 +71,13 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="footer-bottom mt-16 pt-8 border-t border-(--color-stone)/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-(--color-stone)">
+            <div className="footer-bottom mt-16 pt-8 border-t border-(--color-gold)/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-(--color-gold)">
                 <p>© 2026 Michaelson. All rights reserved.</p>
                 <div className="flex gap-6">
-                    <a href="#" className="hover:text-ivory transition-colors">
+                    <a href="#" className="hover:text-white transition-colors">
                         Privacy Policy
                     </a>
-                    <a href="#" className="hover:text-ivory transition-colors">
+                    <a href="#" className="hover:text-white transition-colors">
                         Terms of Service
                     </a>
                 </div>

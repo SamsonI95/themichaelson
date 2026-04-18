@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 const About = () => {
     return (
-        <>
+        <div style={{ fontFamily: 'var(--font-alternate)' }}>
             <section className="py-12 bg-ivory">
                 <div className="mx-auto px-6 lg:px-18">
                     <FadeIn>
@@ -240,7 +240,7 @@ const About = () => {
                     </FadeIn>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 
