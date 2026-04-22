@@ -30,7 +30,7 @@
   color: var(--color-gold);
   font-size: 14px;
   letter-spacing: 0.1em;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 /* underline (hidden initially) */
@@ -47,15 +47,25 @@
 
 /* hover state */
 .nav-links a:hover {
-  color: white;
+  color: var(--color-navy);
   font-weight: bold;
+  background-color: var(--color-gold);
+  padding: 0 10px;
+}
+
+/* active state */
+.nav-links a.active {
+  color: var(--color-navy);
+  font-weight: bold;
+  background-color: var(--color-gold);
+  padding: 0 10px;
 }
 
 /* animate underline */
-.nav-links a:hover::after {
+/* .nav-links a:hover::after {
   width: 100%;
-  background-color: white; /* keep the underline custom color on hover */
-}
+  background-color: white;
+} */
 
 .nav-actions {
   display: flex;
@@ -76,6 +86,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  color: #ae8c55;
 }
 
 .mobile-menu {
@@ -84,9 +95,9 @@
   height: 100vh;
   top: 0;
   right: 0;
-  background: white;
+  background: var(--color-navy);
   padding: 20px;
-
+  color: #ae8c55;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -115,13 +126,21 @@
   place-items: center;
   font-size: 18px;
   cursor: pointer;
-  color: var(--text);
+  color: #ae8c55;
   margin-left: auto;
 }
 
 .mobile-menu a {
   width: 100%;
   text-align: right;
+}
+
+/* active state for mobile menu */
+.mobile-menu a.active {
+  color: var(--color-navy);
+  font-weight: bold;
+  background-color: var(--color-gold);
+  padding: 0 10px;
 }
 
 /* when open */

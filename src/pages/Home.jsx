@@ -20,7 +20,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div style={{ fontFamily: 'var(--font-alternate)' }}>
+        <div className="pt-15 lg:pt-18" style={{ fontFamily: 'var(--font-alternate)' }}>
             <section className="relative py-12 overflow-hidden">
                 <div className="absolute inset-0">
                     {heroImages.map((img, i) => (

@@ -59,13 +59,13 @@ const Contact = () => {
 
   return (
     <>
-      <div style={{ fontFamily: 'var(--font-alternate)' }}>
+      <div className="pt-15 lg:pt-18" style={{ fontFamily: 'var(--font-alternate)' }}>
         <section className="py-12 bg-(--color-ivory)">
           <div className="mx-auto px-6 lg:px-18">
             <FadeIn>
               <div className="max-w-4xl">
                 <p className="text-xs uppercase tracking-[0.2em] text-(--color-gold) mb-6">Contact</p>
-                <h1 className="text-5xl md:text-7xl text-(--color-navy) mb-8 leading-tight">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl text-(--color-navy) mb-8 leading-tight">
                   Let's Begin a Conversation
                 </h1>
                 <p className="text-(--color-taupe) text-xl md:text-2xl leading-relaxed">
